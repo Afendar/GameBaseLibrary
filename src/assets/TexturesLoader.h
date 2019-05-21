@@ -1,3 +1,10 @@
+/**
+ *
+ *
+ * @file src/assets/TexturesLoader.h
+ * @author Afendar
+ */
+
 #pragma once
 
 #include <SFML/Graphics/Texture.hpp>

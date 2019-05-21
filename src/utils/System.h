@@ -1,3 +1,10 @@
+/**
+ *
+ *
+ * @file src/utils/System.h
+ * @author Afendar
+ */
+
 #pragma once
 
 #include <string>

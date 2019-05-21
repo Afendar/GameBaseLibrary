@@ -1,3 +1,10 @@
+/**
+ *
+ *
+ * @file src/system/OSDefines.h
+ * @author Afendar
+ */
+
 #pragma once
 
 #if defined(_WIN32) || defined(_WIN64)

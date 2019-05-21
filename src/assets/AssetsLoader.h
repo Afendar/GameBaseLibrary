@@ -1,3 +1,10 @@
+/**
+ *
+ *
+ * @file src/assets/AssetsLoader.h
+ * @author Afendar
+ */
+
 #pragma once
 
 #include <string>
