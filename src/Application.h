@@ -23,7 +23,6 @@ namespace GDLib {
 			~Application() {}
 
 			virtual void run() = 0;
-			virtual void init() = 0;
 			virtual void stop() = 0;
 
 			sf::Time getElapsed() { return m_elapsed; }
@@ -31,6 +30,7 @@ namespace GDLib {
 
 		protected:
 
+			virtual void init() = 0;
 			virtual void update() = 0;
 			virtual void lateUpdate() = 0;
 

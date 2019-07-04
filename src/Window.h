@@ -28,6 +28,10 @@ namespace GDLib {
 				m_window.display();
 			}
 
+			sf::RenderWindow* getRenderWindow() {
+				return &m_window;
+			}
+
 			void init(const std::string& title, const sf::Vector2u& size, const bool& isFullscreen){
 				m_windowTile = title;
 				m_windowSize = size;
