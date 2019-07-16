@@ -7,18 +7,13 @@
 
 #pragma once
 
-#ifdef GDLIB_EXPORTS
-#define GDLIB_API __declspec(dllexport)
-#else
-#define GDLIB_API __declspec(dllimport)
-#endif
-
 #include <string>
 #include <unordered_map>
 #include <iostream>
 #include <fstream>
 #include <sstream>
 
+#include "../defines.h"
 #include "../lib/json.hpp"
 
 using json = nlohmann::json;

@@ -6,14 +6,10 @@
  */
 #pragma once
 
-#ifdef GDLIB_EXPORTS
-#define GDLIB_API __declspec(dllexport)
-#else
-#define GDLIB_API __declspec(dllimport)
-#endif
-
 #include <iostream>
 #include <SFML/Graphics.hpp>
+
+#include "defines.h"
 #include "Window.h"
 #include "I18n/I18nManager.h"
 

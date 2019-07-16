@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#include "../defines.h"
+
 namespace GDLib {
 	namespace I18n {
 		static const char* locale_list[] = {

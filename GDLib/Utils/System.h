@@ -11,6 +11,8 @@
 #include <iostream>
 #include <algorithm>
 
+#include "../defines.h"
+
 #include "../System/OSDefines.h"
 
 #ifdef RUNNING_WINDOWS
@@ -46,6 +48,16 @@ namespace GDLib {
 						return "";
 					}
 				#endif
+
+				static std::string getCurrentDateTime()
+				{
+					time_t now = time(NULL);
+					struct tm tstruct;
+					char buf[80];
+					localtime_s(&tstruct, &now);
+					strftime(buf, sizeof(buf), "%Y-%m-%d %X", &tstruct);
+					return buf;
+				}
 		};
 		
 	}

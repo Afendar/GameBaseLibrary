@@ -1,12 +1,8 @@
 #pragma once
 
-#ifdef GDLIB_EXPORTS
-#define GDLIB_API __declspec(dllexport)
-#else
-#define GDLIB_API __declspec(dllimport)
-#endif
-
 #include <unordered_map>
+
+#include "defines.h"
 #include "lib/glm/glm.hpp"
 
 namespace GDLib {
