@@ -1,8 +1,12 @@
 #include "Application.h"
 
 namespace GDLib {
-	Application::Application() {
+	Application::Application(): m_stateManager(&m_context) {
 		m_clock.restart();
+		srand(time(nullptr));
+
+		m_context.m_window = &m_window;
+
 		m_isInitialized = false;
 		m_isRunning = false;
 	}

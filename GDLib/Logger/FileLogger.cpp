@@ -5,13 +5,13 @@ namespace GDLib {
 		FileLogger::FileLogger(const char* filename) : LoggerInterface() {
 			m_fileStream.open(filename);
 			if (m_fileStream.is_open()) {
-				logMessage(Severity::INFO, __FILE__, __LINE__, "FileLogger::ctor()");
+				logMessage(Severity::S_INFO, __FILE__, __LINE__, "FileLogger::ctor()");
 			}
 		}
 
 		FileLogger::~FileLogger() {
 			if (m_fileStream.is_open()) {
-				logMessage(Severity::INFO, __FILE__, __LINE__, "FileLogger::dtor()");
+				logMessage(Severity::S_INFO, __FILE__, __LINE__, "FileLogger::dtor()");
 				m_fileStream.close();
 			}
 		}
@@ -24,22 +24,26 @@ namespace GDLib {
 			return *result;
 		}
 
-		std::ostream& FileLogger::getStream(Severity severity, const char* file, int line, int exitCode = -1) {
+		std::ostream& FileLogger::getStream(Severity severity, const char* file, int line, int exitCode) {
 			std::ostream* result = nullptr;
 			if (m_fileStream.is_open()) {
 				result = &m_fileStream;
+				writeHeader(m_fileStream, severity, file, line);
 			}
 			return *result;
 		}
 
 		void FileLogger::logMessage(const char* message) {
-			m_fileStream << message << std::endl;
-			
+			if (m_fileStream.is_open()) {
+				m_fileStream << message << std::endl;
+			}
 		}
 
 		void FileLogger::logMessage(Severity severity, const char* file, int line, const char* message) {
-			m_fileStream << message << std::endl;
+			if (m_fileStream.is_open()) {
+				writeHeader(m_fileStream, severity, file, line);
+				m_fileStream << message << std::endl;
+			}
 		}
-
 	}
 }

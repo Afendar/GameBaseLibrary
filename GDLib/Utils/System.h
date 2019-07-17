@@ -7,17 +7,18 @@
 
 #pragma once
 
+#include <time.h>
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <sstream>
 
 #include "../defines.h"
 
 #include "../System/OSDefines.h"
 
 #ifdef RUNNING_WINDOWS
-	#include <Windows.h>
-	#include <Shlwapi.h>
+	#include <windows.h>
 #elif defined RUNNING_LINX
 	#include <unistd.h>
 #endif
@@ -28,15 +29,6 @@ namespace GDLib {
 			public:
 				#ifdef RUNNING_WINDOWS
 					static std::string getWorkingDirectory() {
-						HMODULE hModule = GetModuleHandle(nullptr);
-						if (hModule) {
-							wchar_t path[256];
-							GetModuleFileName(hModule, path, sizeof(path));
-							PathRemoveFileSpec(path);
-							wcscat_s(path, L"\\");
-							std::wstring ws(path);
-							return std::string(ws.begin(), ws.end());
-						}
 						return "";
 					}
 				#elif defined RUNNING_LINX

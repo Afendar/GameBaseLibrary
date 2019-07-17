@@ -12,6 +12,8 @@
 #include "defines.h"
 #include "Window.h"
 #include "I18n/I18nManager.h"
+#include "Context.h"
+#include "State/StateManager.h"
 
 namespace GDLib {
 
@@ -36,7 +38,10 @@ namespace GDLib {
 
 			void restartClock();
 
+			Context m_context;
 			Window m_window;
+			State::StateManager m_stateManager;
+
 			I18n::I18nManager m_i18nManager;
 
 			sf::Clock m_clock;
