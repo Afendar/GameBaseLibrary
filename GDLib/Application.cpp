@@ -6,6 +6,7 @@ namespace GDLib {
 		srand(time(nullptr));
 
 		m_context.m_window = &m_window;
+		m_context.m_texturesLoader = &m_texturesLoader;
 
 		m_isInitialized = false;
 		m_isRunning = false;

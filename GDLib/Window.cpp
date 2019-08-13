@@ -23,6 +23,16 @@ namespace GDLib {
 		return &m_window;
 	}
 
+	GDLib::EventManager* Window::getEventManager()
+	{
+		return &this->m_eventManager;
+	}
+
+	sf::Vector2u Window::getWindowSize()
+	{
+		return this->m_windowSize;
+	}
+
 	void Window::init(const std::string& title, const sf::Vector2u& size, const bool& isFullscreen) {
 		m_windowTile = title;
 		m_windowSize = size;
@@ -31,25 +41,26 @@ namespace GDLib {
 		m_isFocused = false;
 		m_isInitialized = true;
 
+		this->m_eventManager.addCallback(0, "window_close", &Window::close, this);
+
 		create();
 	}
 
 	void Window::update() {
 		sf::Event event;
 		while (m_window.pollEvent(event)) {
-			if (event.type == sf::Event::Closed) {
-				close();
-			}
+			this->m_eventManager.handleEvent(event);
 		}
+		this->m_eventManager.update();
 	}
 
 	bool Window::isClosed() { return m_isClosed; }
 	bool Window::isFullscreen() { return m_isFullscreen; }
 	bool Window::isFocused() { return m_isFocused; }
 
-	void Window::toggleFullscreen() {}
+	void Window::toggleFullscreen(EventDetails* details) {}
 
-	void Window::close() {
+	void Window::close(EventDetails* details) {
 		m_isClosed = true;
 	}
 
@@ -67,5 +78,7 @@ namespace GDLib {
 
 		m_window.create(sf::VideoMode(m_windowSize.x, m_windowSize.y, 32), m_windowTile, style, context);
 		m_window.setVerticalSyncEnabled(true);
+
+		this->m_windowSize = this->m_window.getSize();
 	}
 }

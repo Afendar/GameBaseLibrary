@@ -9,6 +9,8 @@ namespace GDLib {
 
 		BaseState::~BaseState(){}
 
+		void BaseState::registerBindings(){}
+
 		void BaseState::setTransparent(const bool& transparent) {
 			m_transparent = transparent;
 		}

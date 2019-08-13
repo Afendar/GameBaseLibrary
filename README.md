@@ -1,5 +1,5 @@
 # sf::gdLib - Simple and Fast Game Development Library
 
-#Getting started
+## Getting started
 
 - Download SFML.

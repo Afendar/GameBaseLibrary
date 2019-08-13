@@ -14,6 +14,7 @@
 #include "I18n/I18nManager.h"
 #include "Context.h"
 #include "State/StateManager.h"
+#include "Assets/TexturesLoader.h"
 
 namespace GDLib {
 
@@ -40,6 +41,7 @@ namespace GDLib {
 
 			Context m_context;
 			Window m_window;
+			Assets::TexturesLoader m_texturesLoader;
 			State::StateManager m_stateManager;
 
 			I18n::I18nManager m_i18nManager;

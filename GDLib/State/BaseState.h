@@ -26,6 +26,8 @@ namespace GDLib {
 			virtual void update(const sf::Time& time) = 0;
 			virtual void draw() = 0;
 
+			virtual void registerBindings();
+
 			void setTransparent(const bool& transparent);
 			bool isTransparent() const;
 

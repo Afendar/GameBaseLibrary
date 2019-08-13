@@ -10,6 +10,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "defines.h"
+#include "EventManager.h"
 
 namespace GDLib {
 	class GDLIB_API Window {
@@ -22,6 +23,8 @@ namespace GDLib {
 			void display();
 
 			sf::RenderWindow* getRenderWindow();
+			GDLib::EventManager* getEventManager();
+			sf::Vector2u getWindowSize();
 
 			void init(const std::string& title, const sf::Vector2u& size, const bool& isFullscreen);
 
@@ -31,8 +34,8 @@ namespace GDLib {
 			bool isFullscreen();
 			bool isFocused();
 
-			void toggleFullscreen();
-			void close();
+			void toggleFullscreen(EventDetails* details);
+			void close(EventDetails* details = nullptr);
 
 		private:
 
@@ -46,6 +49,7 @@ namespace GDLib {
 			bool m_isInitialized;
 			
 			sf::RenderWindow m_window;
+			GDLib::EventManager m_eventManager;
 			sf::Vector2u m_windowSize;
 			std::string m_windowTile;
 	};

@@ -1,9 +1,10 @@
 #include "TexturesLoader.h"
-#include "AssetsLoader.cpp"
 
 namespace GDLib {
 	namespace Assets {
-		TexturesLoader::TexturesLoader() : AssetsLoader<TexturesLoader, sf::Texture>("data/textures.cfg") {}
+		TexturesLoader::TexturesLoader() : AssetsLoader<TexturesLoader, sf::Texture>("textures") {
+			std::cout << "Loading textures..." << std::endl;
+		}
 
 		TexturesLoader::~TexturesLoader() {
 

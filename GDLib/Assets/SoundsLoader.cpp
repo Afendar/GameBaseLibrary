@@ -1,5 +1,4 @@
 #include "SoundsLoader.h"
-#include "AssetsLoader.cpp"
 
 namespace GDLib {
 	namespace Assets {

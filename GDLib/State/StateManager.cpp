@@ -22,6 +22,7 @@ namespace GDLib {
 							break;
 						}
 					}
+					--it;
 				}
 				for (; it != m_states.end(); ++it) {
 					it->second->update(time);
