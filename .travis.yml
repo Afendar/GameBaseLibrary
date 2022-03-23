@@ -1,0 +1,10 @@
+os: linux
+dist: trusty
+arch: amd64
+language: cpp
+
+compiler:
+  - gcc
+
+notifications:
+  email: false
