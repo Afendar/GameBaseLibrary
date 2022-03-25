@@ -15,7 +15,7 @@ namespace gbl {
 				/**
 				* 
 				*/
-				virtual ~BaseApplication() = default;
+				~BaseApplication() = default;
 
 				/**
 				* 
@@ -43,6 +43,11 @@ namespace gbl {
 				* 
 				*/
 				virtual void handleEvents();
+
+				/**
+				* 
+				*/
+				virtual void onEvent(const SDL_Event& event);
 
 				/**
 				* 
