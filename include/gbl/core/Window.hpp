@@ -40,7 +40,7 @@ namespace gbl {
 
 				using SDL_WindowPtr = std::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)>;
 
-				SDL_WindowPtr m_window{ nullptr, SDL_DestroyWindow };
+				SDL_WindowPtr m_window{nullptr, SDL_DestroyWindow};
 				bool m_opened, m_verticalSyncEnabled;
 				Vector2u m_size;
 				WindowMode m_mode = WindowMode::WINDOWED;

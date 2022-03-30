@@ -13,34 +13,34 @@ namespace gbl {
 
 				Vector2 operator-() const { return Vector2{ -m_x, -m_y }; }
 
-				constexpr Vector2 &operator+=(const Vector2& vector) { *this = operator+(vector); return *this; }
-				constexpr Vector2& operator-=(const Vector2& vector) { *this = operator-(vector); return *this; }
-				constexpr Vector2& operator*=(const Vector2& vector) { *this = operator*(vector); return *this; }
-				constexpr Vector2& operator/=(const Vector2& vector) { *this = operator/(vector); return *this; }
+				Vector2 &operator+=(const Vector2& vector) { *this = operator+(vector); return *this; }
+				Vector2& operator-=(const Vector2& vector) { *this = operator-(vector); return *this; }
+				Vector2& operator*=(const Vector2& vector) { *this = operator*(vector); return *this; }
+				Vector2& operator/=(const Vector2& vector) { *this = operator/(vector); return *this; }
+
+				T m_x, m_y;
 
 				template<typename U>
-				constexpr auto operator+(const Vector2<U> &vector)->Vector2<decltype(m_x + vector.m_x)> {
+				auto operator+(const Vector2<U> &vector) -> Vector2<decltype(m_x + vector.m_x)> {
 					return { m_x + vector.m_x, m_y + vector.m_y };
 				}
 				template<typename U>
-				constexpr auto operator-(const Vector2<U>& vector)->Vector2<decltype(m_x - vector.m_x)> {
+				auto operator-(const Vector2<U>& vector) -> Vector2<decltype(m_x - vector.m_x)> {
 					return { m_x - vector.m_x, m_y - vector.m_y };
 				}
 				template<typename U>
-				constexpr auto operator*(const Vector2<U>& vector)->Vector2<decltype(m_x * vector.m_x)> {
+				auto operator*(const Vector2<U>& vector) -> Vector2<decltype(m_x * vector.m_x)> {
 					return { m_x * vector.m_x, m_y * vector.m_y };
 				}
 				template<typename U>
-				constexpr auto operator/(const Vector2<U>& vector)->Vector2<decltype(m_x / vector.m_x)> {
+				auto operator/(const Vector2<U>& vector) -> Vector2<decltype(m_x / vector.m_x)> {
 					return { m_x / vector.m_x, m_y / vector.m_y };
 				}
 
-				constexpr bool operator==(const Vector2<T>& vector) { return m_x == vector.m_x && m_y == vector.m_y; }
-				constexpr bool operator!=(const Vector2<T>& vector) { return !operator==(vector); }
-				constexpr bool operator<(const Vector2<T>& vector) { return m_x < vector.m_x && m_y < vector.m_y; }
-				constexpr bool operator>(const Vector2<T>& vector) { return m_x > vector.m_x && m_y > vector.m_y; }
-
-				T m_x, m_y;
+				bool operator==(const Vector2<T>& vector) { return m_x == vector.m_x && m_y == vector.m_y; }
+				bool operator!=(const Vector2<T>& vector) { return !operator==(vector); }
+				bool operator<(const Vector2<T>& vector) { return m_x < vector.m_x && m_y < vector.m_y; }
+				bool operator>(const Vector2<T>& vector) { return m_x > vector.m_x && m_y > vector.m_y; }
 		};
 
 		using Vector2i = Vector2<int>;

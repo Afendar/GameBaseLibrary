@@ -3,7 +3,8 @@
 
 void gbl::core::Window::open(int width, int height, const std::string& title)
 {
-	m_window.reset(SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN));
+	m_window.reset(SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, 0));
+
 	if (!m_window) {
 		throw gbl::core::Exception("Window initialisation failed:", SDL_GetError());
 	}

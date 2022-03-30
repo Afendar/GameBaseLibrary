@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Window.hpp"
+#include "SharedContext.hpp"
 
 namespace gbl {
 	namespace core {
@@ -15,7 +16,7 @@ namespace gbl {
 				/**
 				* 
 				*/
-				~BaseApplication() = default;
+				~BaseApplication();
 
 				/**
 				* 
@@ -55,6 +56,7 @@ namespace gbl {
 				virtual void loop();
 
 				std::unique_ptr<Window> m_window;
+				std::unique_ptr<SharedContext> m_context;
 		};
 	}
 }
