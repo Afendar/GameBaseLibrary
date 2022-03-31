@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Window.hpp"
+#include "EventManager.hpp"
 #include "SharedContext.hpp"
 
 namespace gbl {
@@ -56,6 +57,7 @@ namespace gbl {
 				virtual void loop();
 
 				std::unique_ptr<Window> m_window;
+				std::unique_ptr<EventManager> m_eventManager;
 				std::unique_ptr<SharedContext> m_context;
 		};
 	}
