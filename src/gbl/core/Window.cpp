@@ -23,13 +23,19 @@ void gbl::core::Window::display()
 {
 }
 
-void gbl::core::Window::onEvent(const SDL_Event& event)
+void gbl::core::Window::onEvent(const Event& event)
 {
-	if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) {
-		m_size.m_x = event.window.data1;
-		m_size.m_y = event.window.data2;
-
-		resize(m_size.m_x, m_size.m_y);
+	switch (event.type) {
+	case Event::EventType::Resized:
+			m_size.m_x = event.size.width;
+			m_size.m_y = event.size.height;
+			resize(m_size.m_x, m_size.m_y);
+			break;
+	case Event::EventType::Closed:
+			m_opened = false;
+			break;
+		default:
+			break;
 	}
 }
 
@@ -55,4 +61,18 @@ gbl::core::Window::WindowMode gbl::core::Window::getWindowMode() const
 
 void gbl::core::Window::setWindowMode(WindowMode mode)
 {
+}
+
+bool gbl::core::Window::poolEvent(Event& event)
+{
+	if (m_eventManager->popEvent(event, false)) {
+		return filterEvent(event);
+	}
+	return false;
+}
+
+bool gbl::core::Window::filterEvent(const Event& event)
+{
+	onEvent(event);
+	return true;
 }
