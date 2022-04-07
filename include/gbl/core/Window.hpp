@@ -1,12 +1,14 @@
 #pragma once
 
+//Standard C++ Library Includes
 #include <memory>
 #include <string>
 #include <iostream>
 
-#include "manager/EventManager.hpp"
-#include "SDLHeaders.hpp"
-#include "Vector2.hpp"
+//GameBaseLibrary Includes
+#include <core/manager/EventManager.hpp>
+#include <core/SDLHeaders.hpp>
+#include <core/Vector2.hpp>
 
 namespace gbl {
 	namespace core {

@@ -1,5 +1,6 @@
-#include "../../../include/gbl/core/Window.hpp"
-#include "../../../include/gbl/core/Exception.hpp"
+//GameBaseLibrary Includes
+#include <core/Window.hpp>
+#include <core/Exception.hpp>
 
 void gbl::core::Window::open(int width, int height, const std::string& title)
 {

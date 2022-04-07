@@ -1,7 +1,9 @@
 #pragma once
 
+//Standard C++ Library Includes
 #include <exception>
 #include <string>
+
 namespace gbl {
 	namespace core {
 		class Exception : public std::exception

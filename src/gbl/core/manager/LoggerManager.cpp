@@ -1,8 +1,8 @@
-
-#include "../../../../include/gbl/core/Environment.hpp"
-#include "../../../../include/gbl/core/manager/LoggerManager.hpp"
-#include "../../../../include/gbl/core/logging/ConsoleLogger.hpp"
-#include "../../../../include/gbl/core/logging/StreamLogger.hpp"
+//GameBaseLibrary Includes
+#include <core/Environment.hpp>
+#include <core/manager/LoggerManager.hpp>
+#include <core/logging/ConsoleLogger.hpp>
+#include <core/logging/StreamLogger.hpp>
 
 gbl::core::Logger* gbl::core::LoggerManager::getLogger()
 {

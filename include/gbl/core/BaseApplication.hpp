@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Window.hpp"
-#include "SharedContext.hpp"
+//GameBaseLibrary Includes
+#include <core/Window.hpp>
+#include <core/SharedContext.hpp>
 
 namespace gbl {
 	namespace core {
@@ -43,7 +44,12 @@ namespace gbl {
 				/**
 				* 
 				*/
-				virtual void handleEvents();
+				virtual void handleEvents() {
+					Event event{};
+					while (m_window->poolEvent(event)) {
+						//Process events here
+					}
+				};
 
 				/**
 				* 

@@ -1,5 +1,6 @@
 #pragma once
 
+//Standard C++ Library Includes
 #include <string>
 #include <sys/stat.h>
 #include <sstream>
@@ -12,8 +13,6 @@
 /**
 * @param folderName Name of folder than is checked
 * @return `true` if folder exist or `false` if not
-*
-* @since indev-0.5
 */
 static inline bool folder_exists(std::string folderName)
 {
@@ -25,8 +24,6 @@ static inline bool folder_exists(std::string folderName)
 /**
 * @param fileName Name of file to get creation date
 * @return st_ctime of filename
-*
-* @since indev-0.5
 */
 static inline time_t getCreationDate(std::string fileName) {
 	struct stat st;
@@ -37,8 +34,6 @@ static inline time_t getCreationDate(std::string fileName) {
 /**
 * @param path Path of directories want to be create
 * @return status of creation
-*
-* @since indev-0.5
 */
 static inline int makedir(const char* path)
 {

@@ -1,3 +1,4 @@
+//Boost Library Includes
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
 #include <boost/log/expressions.hpp>
@@ -5,7 +6,8 @@
 #include <boost/log/utility/setup/console.hpp>
 #include <boost/log/utility/setup/common_attributes.hpp>
 
-#include "../../../../include/gbl/core/logging/ConsoleLogger.hpp"
+//GameBaseLibrary Includes
+#include <core/logging/ConsoleLogger.hpp>
 
 gbl::core::ConsoleLogger* gbl::core::ConsoleLogger::m_instance = nullptr;
 

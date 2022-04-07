@@ -1,6 +1,7 @@
 #pragma once
 
-#include "IResourceLoader.hpp"
+//GameBaseLibrary Includes
+#include <resource/IResourceLoader.hpp>
 
 namespace gbl {
 	namespace resource {

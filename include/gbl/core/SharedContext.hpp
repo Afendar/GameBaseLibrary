@@ -1,7 +1,8 @@
 #pragma once
 
-#include "../resource/ResourceManager.hpp"
-#include "manager/LoggerManager.hpp"
+//GameBaseLibrary Includes
+#include <resource/ResourceManager.hpp>
+#include <core/manager/LoggerManager.hpp>
 
 namespace gbl {
 	namespace core {

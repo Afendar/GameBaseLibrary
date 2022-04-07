@@ -1,9 +1,10 @@
 #pragma once
 
+//Standard C++ Library Includes
 #include <queue>
 
-#include "../SDLHeaders.hpp"
-#include "../input/Event.hpp"
+//GameBaseLibrary Includes
+#include <core/input/Event.hpp>
 
 namespace gbl {
 	namespace core {

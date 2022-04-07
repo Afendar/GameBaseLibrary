@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Mouse.hpp"
-#include "Keyboard.hpp"
+//GameBaseLibrary Includes
+#include <core/input/Mouse.hpp>
+#include <core/input/Keyboard.hpp>
 
 namespace gbl {
 	namespace core {
@@ -15,6 +16,7 @@ namespace gbl {
 
 				struct KeyEvent {
 					Keyboard::Key code;
+					SDL_Keycode sdl_code;
 					bool alt;
 					bool control;
 					bool shift;

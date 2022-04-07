@@ -1,6 +1,8 @@
-#include "../../../include/gbl/core/BaseApplication.hpp"
-#include "../../../include/gbl/core/Exception.hpp"
-#include "../../../include/gbl/resource/TextureLoader.hpp"
+
+//GameBaseLibrary Includes
+#include <core/BaseApplication.hpp>
+#include <core/Exception.hpp>
+#include <resource/TextureLoader.hpp>
 
 gbl::core::BaseApplication::BaseApplication(int argc, char** argv)
 {
@@ -37,7 +39,6 @@ int gbl::core::BaseApplication::run()
 bool gbl::core::BaseApplication::init()
 {
 	m_context = std::make_unique<SharedContext>();
-
 	m_context->m_resourceManager->loadConfigFile<gbl::resource::TextureLoader>("resources/config/textures.json");
 	return true;
 }
@@ -45,23 +46,6 @@ bool gbl::core::BaseApplication::init()
 void gbl::core::BaseApplication::createWindow(int width, int height, const std::string& title)
 {
 	m_window->open(width, height, title);
-}
-
-void gbl::core::BaseApplication::handleEvents()
-{
-	Event event;
-	while (m_window->poolEvent(event)) {
-		if (event.type == Event::EventType::KeyPressed) {
-			switch (event.key.code) {
-			case Keyboard::Key::Numpad0:
-					LoggerManager::getLogger()->debug("Key numpad 0 pressed");
-					break;
-			case Keyboard::Key::Unknown:
-					LoggerManager::getLogger()->debug("Unkown pressed key");
-					break;
-			}
-		}
-	}
 }
 
 void gbl::core::BaseApplication::loop()

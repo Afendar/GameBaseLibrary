@@ -1,5 +1,8 @@
-#include "../../../include/gbl/resource/TextureLoader.hpp"
+//Standard C++ Library Includes
 #include <iostream>
+
+//GameBaseLibrary Includes
+#include <resource/TextureLoader.hpp>
 
 void gbl::resource::TextureLoader::load(const char* jsonFilename, ResourceManager* handler)
 {

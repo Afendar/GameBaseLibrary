@@ -1,10 +1,12 @@
 #pragma once
 
+//Standard C++ Library Includes
 #include <map>
 #include <memory>
 
-#include "IResourceLoader.hpp"
-#include "../core/Exception.hpp"
+//GameBaseLibrary Includes
+#include <resource/IResourceLoader.hpp>
+#include <core/Exception.hpp>
 
 namespace gbl {
 	namespace resource {

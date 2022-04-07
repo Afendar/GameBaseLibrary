@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Logger.hpp"
+//GameBaseLibrary Includes
+#include <core/logging/Logger.hpp>
 
 namespace gbl {
 	namespace core {

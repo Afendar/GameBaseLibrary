@@ -1,12 +1,16 @@
+//Standard C++ Library Includes
 #include <iostream>
+
+//Boost Library Includes
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
 #include <boost/log/expressions.hpp>
 #include <boost/log/utility/setup/file.hpp>
 #include <boost/log/utility/setup/common_attributes.hpp>
 
-#include "../../../../include/gbl/core/logging/StreamLogger.hpp"
-#include "../../../../include/gbl/core/Utils.hpp"
+//GameBaseLibrary Includes
+#include <core/logging/StreamLogger.hpp>
+#include <core/Utils.hpp>
 
 gbl::core::StreamLogger* gbl::core::StreamLogger::m_instance = nullptr;
 
