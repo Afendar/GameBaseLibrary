@@ -9,8 +9,16 @@
 
 namespace gbl {
 	namespace core {
+		/**
+		* Class Keyboard
+		* 
+		* @author Afendar <contact.afendar@gmail.com>
+		*/
 		class Keyboard {
 			public:
+				/**
+				*
+				*/
 				enum struct Key : int {
 					Unknown = -1,
 					Num0 = 0,
@@ -113,8 +121,28 @@ namespace gbl {
 					Count
 				};
 
+				/**
+				* 
+				* 
+				* @param SDL_Keycode code
+				* @return Key
+				*/
 				static Key getKeycodeFromSDLKeycode(const SDL_Keycode& code);
+
+				/**
+				* 
+				* 
+				* @param Key key
+				* @return std::string
+				*/
 				static std::string getKeyName(Key key);
+
+				/**
+				* 
+				* 
+				* @param SDL_Keycode code
+				* @return std::string
+				*/
 				static std::string getKeyNameFromSDLKeycode(const SDL_Keycode& code);
 
 			private:

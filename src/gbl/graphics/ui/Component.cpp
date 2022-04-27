@@ -1,4 +1,5 @@
 #include <graphics/ui/Component.hpp>
+#include <graphics/ui/Container.hpp>
 
 std::weak_ptr<gbl::graphics::Component> focusedComponent;
 
@@ -152,7 +153,8 @@ void gbl::graphics::Component::handleEvent(const gbl::core::Event& evt)
 
 bool gbl::graphics::Component::isMouseInComponent() const
 {
-	gbl::core::Vector2f localPosition = gbl::core::Vector2f(gbl::core::Mouse::getPosition(*m_screen->getRenderWindow()));
+	//gbl::core::Vector2f localPosition = gbl::core::Vector2f(gbl::core::Mouse::getPosition());
+	gbl::core::Vector2f localPosition{0, 0};
 	gbl::core::FloatRect rect(const_cast<Component*>(this)->getLocalBounds());
 	gbl::core::Vector2f pos = getPosition();
 	rect.m_x += pos.m_x;

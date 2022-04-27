@@ -6,6 +6,8 @@ void gbl::core::Window::open(int width, int height, const std::string& title)
 {
 	m_window.reset(SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, 0));
 
+	m_renderer.reset(SDL_CreateRenderer(m_window.get(), -1, SDL_RENDERER_ACCELERATED));
+
 	if (!m_window) {
 		throw gbl::core::Exception("Window initialisation failed:", SDL_GetError());
 	}
@@ -16,8 +18,10 @@ void gbl::core::Window::open(int width, int height, const std::string& title)
 	m_opened = true;
 }
 
-void gbl::core::Window::clear()
+void gbl::core::Window::clear(const gbl::graphics::Color& color)
 {
+	SDL_SetRenderDrawColor(m_renderer.get(), color.r, color.g, color.b, color.a);
+	SDL_RenderClear(m_renderer.get());
 }
 
 void gbl::core::Window::display()

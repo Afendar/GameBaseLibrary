@@ -36,7 +36,7 @@ namespace gbl {
 						& (std::max(m_y, rect.m_y) < std::min(m_y + m_sizeY, rect.m_y + rect.m_sizeY));
 				}
 
-				bool operator==(const Rect<T>& rect) const { return x == rect.m_x && y == rect.m_y && m_sizeX == rect.m_sizeX && m_sizeY == rect.m_sizeY; }
+				bool operator==(const Rect<T>& rect) const { return m_x == rect.m_x && m_y == rect.m_y && m_sizeX == rect.m_sizeX && m_sizeY == rect.m_sizeY; }
 
 				bool operator!=(const Rect<T>& rect) const { return !operator==(rect); }
 

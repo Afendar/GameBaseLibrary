@@ -1,16 +1,25 @@
 #pragma once
 
 //GameBaseLibrary Includes
-#include <core/Window.hpp>
+#include <graphics/RenderWindow.hpp>
 #include <core/SharedContext.hpp>
 
 namespace gbl {
 	namespace core {
+		/**
+		* Class BaseApplication
+		* 
+		* @author Afendar <contact.afendar@gmail.com>
+		* @since 0.0.1
+		*/
 		class BaseApplication {
 			public:
 
 				/**
 				* 
+				* 
+				* @param int argc
+				* @param char** argv
 				*/
 				BaseApplication(int argc, char** argv);
 
@@ -21,6 +30,8 @@ namespace gbl {
 
 				/**
 				* 
+				* 
+				* @return int
 				*/
 				int run();
 
@@ -28,11 +39,17 @@ namespace gbl {
 
 				/**
 				* 
+				* 
+				* @return bool
 				*/
 				virtual bool init();
 
 				/**
 				* 
+				* 
+				* @param int width
+				* @param int height
+				* @param std::string title
 				*/
 				void createWindow(int width, int height, const std::string& title);
 
@@ -56,7 +73,7 @@ namespace gbl {
 				*/
 				virtual void loop();
 
-				std::unique_ptr<Window> m_window;
+				std::unique_ptr<gbl::graphics::RenderWindow> m_window;
 				std::unique_ptr<SharedContext> m_context;
 		};
 	}

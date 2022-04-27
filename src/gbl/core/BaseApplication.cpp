@@ -4,9 +4,11 @@
 #include <core/Exception.hpp>
 #include <resource/TextureLoader.hpp>
 
+#include <graphics/RectangleShape.hpp>
+
 gbl::core::BaseApplication::BaseApplication(int argc, char** argv)
 {
-	m_window = std::make_unique<Window>();
+	m_window = std::make_unique<gbl::graphics::RenderWindow>();
 }
 
 gbl::core::BaseApplication::~BaseApplication()
@@ -53,9 +55,13 @@ void gbl::core::BaseApplication::loop()
 	while (m_window->isOpen()) {
 		handleEvents();
 
-		//m_window->clear();
+		m_window->clear();
 
 		//Draw call
+		gbl::graphics::RectangleShape rectangle(250, 50);
+		rectangle.setPosition(50, 50);
+		rectangle.setRotation(45);
+		m_window->draw(rectangle);
 
 		//m_window->display();
 	}

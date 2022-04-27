@@ -3,35 +3,37 @@
 //Standard C++ Library Includes
 #include <array>
 
-#include <core/Vector2.hpp>
+//GameBaseLibrary Includes
+#include <graphics/Shape.hpp>
 
 namespace gbl {
 	namespace graphics {
-		class RectangleShape {
+		class VertexArray;
+
+		class RectangleShape : public Shape {
 			public:
-				RectangleShape();
-				RectangleShape(float width, float height);
+				RectangleShape() : RectangleShape(gbl::core::Vector2f{ 0, 0 }) {}
+				RectangleShape(float width, float height) : RectangleShape(gbl::core::Vector2f{ width, height }) {}
+				RectangleShape(const gbl::core::Vector2f& size = gbl::core::Vector2f(0, 0));
 
-				//const Color &getColor() const {return m_color;}
-				//void setFillColor(const Color &color) {m_color = color;}
+				float getWidth() const { return m_rect.w; }
+				float getHeight() const { return m_rect.h; }
 
-				float getWidth() const { return m_width; }
-				float getHeight() const { return m_height; }
+				gbl::core::Vector2f getSize() const { return gbl::core::Vector2f{ static_cast<float>(m_rect.w), static_cast<float>(m_rect.h) }; }
 
-				gbl::core::Vector2f getSize() const { return gbl::core::Vector2f{ m_width, m_height }; }
+				void setSize(float width, float height) { m_rect.w = width; m_rect.h = height; }
+				void setSize(const gbl::core::Vector2f& size) { m_rect.w = size.m_x; m_rect.h = size.m_y; }
 
-				void setSize(float width, float height) { m_width = width; m_height = height; }
-				void setSize(const gbl::core::Vector2f& size) { m_width = size.m_x; m_height = size.m_y; }
+				std::size_t getPointCount() const override;
 
 				//void setOutlineColor(const Color& color) { m_outlineColor = color; }
 				//void setOutlineThickness(int outlineThickness) { m_outlineThickness = outlineThickness; }
 
 			private:
 
-				void draw() const;
+				void draw(RenderTarget& target, RenderStates& states) const override;
 
-				float m_width = 0;
-				float m_height = 0;
+				SDL_Rect m_rect{0, 0, 0, 0};
 				int m_outlineThickness = 0;
 		};
 	}

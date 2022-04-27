@@ -4,15 +4,14 @@
 #include <memory>
 
 //GameBaseLibrary Includes
-#include <core/Vector2.hpp>
-#include <core/Rect.hpp>
+#include <graphics/Transformable.hpp>
 #include <core/input/Event.hpp>
 
 namespace gbl {
 	namespace graphics {
 		class Container;
 
-		class Component : public std::enable_shared_from_this<Component> {
+		class Component : public Transformable, public std::enable_shared_from_this<Component> {
 			public:
 				typedef std::shared_ptr<Component> Ptr;
 				typedef std::shared_ptr<const Component> PtrConst;

@@ -6,14 +6,25 @@
 
 namespace gbl {
 	namespace core {
-
+		/**
+		* Class Event
+		* 
+		* @author Afendar <contact.afendar@gmail.com>
+		* @since 0.0.1
+		*/
 		class Event {
 			public:
+				/**
+				* 
+				*/
 				struct ResizeEvent {
 					unsigned int width;
 					unsigned int height;
 				};
 
+				/**
+				* 
+				*/
 				struct KeyEvent {
 					Keyboard::Key code;
 					SDL_Keycode sdl_code;
@@ -23,17 +34,33 @@ namespace gbl {
 					bool system;
 				};
 
+				/**
+				*
+				*/
+				struct TextEvent {
+					Uint32 unicode;
+				};
+
+				/**
+				*
+				*/
 				struct MouseMoveEvent {
 					int x;
 					int y;
 				};
 
+				/**
+				*
+				*/
 				struct MouseButtonEvent {
 					Mouse::Button button;
 					int x;
 					int y;
 				};
 
+				/**
+				*
+				*/
 				struct MouseWheelScrollEvent {
 					Mouse::Wheel wheel;
 					float delta;
@@ -41,6 +68,9 @@ namespace gbl {
 					int y;
 				};
 
+				/**
+				*
+				*/
 				enum class EventType : int {
 					Unknown = -1,
 					Closed = 0,
@@ -64,6 +94,7 @@ namespace gbl {
 				union {
 					ResizeEvent size;
 					KeyEvent key;
+					TextEvent text;
 					MouseMoveEvent mouseMove;
 					MouseButtonEvent mouseButton;
 				};

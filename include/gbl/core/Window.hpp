@@ -9,6 +9,7 @@
 #include <core/manager/EventManager.hpp>
 #include <core/SDLHeaders.hpp>
 #include <core/Vector2.hpp>
+#include <graphics/Color.hpp>
 
 namespace gbl {
 	namespace core {
@@ -23,7 +24,7 @@ namespace gbl {
 
 				void open(int width, int height, const std::string& title);
 				void close() { m_opened = false; }
-				void clear();
+				void clear(const gbl::graphics::Color& color = gbl::graphics::Color(0, 0, 0));
 				void display();
 
 				bool isVerticalSyncEnabled() const { return m_verticalSyncEnabled; }
@@ -41,8 +42,10 @@ namespace gbl {
 			protected:
 
 				using SDL_WindowPtr = std::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)>;
+				using SDL_RendererPtr = std::unique_ptr<SDL_Renderer, decltype(&SDL_DestroyRenderer)>;
 
 				SDL_WindowPtr m_window{nullptr, SDL_DestroyWindow};
+				SDL_RendererPtr m_renderer{nullptr, SDL_DestroyRenderer};
 				std::unique_ptr<EventManager> m_eventManager = std::make_unique<EventManager>();
 				bool m_opened, m_verticalSyncEnabled;
 				Vector2u m_size;
