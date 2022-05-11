@@ -15,6 +15,8 @@ namespace gbl {
 				std::size_t getPointCount() const override;
 
 			private:
+				void draw(RenderTarget& target, RenderStates& states) const override;
+
 				float m_radius;
 				std::size_t m_pointCount;
 		};

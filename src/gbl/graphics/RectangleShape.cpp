@@ -24,7 +24,6 @@ namespace gbl {
 
 			SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
 			SDL_RenderFillRect(renderer, &m_rect);
-			SDL_RenderPresent(renderer);
 		}
 	}
 }

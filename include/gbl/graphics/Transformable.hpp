@@ -27,7 +27,7 @@ namespace gbl {
 
 				const Transform& getTransform() const;
 
-			private:
+			protected:
 
 				gbl::core::Vector2f m_position{0, 0};
 				gbl::core::Vector2f m_origin{0, 0};

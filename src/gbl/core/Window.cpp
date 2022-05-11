@@ -26,6 +26,7 @@ void gbl::core::Window::clear(const gbl::graphics::Color& color)
 
 void gbl::core::Window::display()
 {
+	SDL_RenderPresent(m_renderer.get());
 }
 
 void gbl::core::Window::onEvent(const Event& event)

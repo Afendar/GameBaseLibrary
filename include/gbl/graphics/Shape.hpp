@@ -29,17 +29,17 @@ namespace gbl {
 				Shape();
 				void update();
 
-			private:
-
-				void updateColor();
-				void updateOutlineColor();
-				void updateOutline();
-
 				Color m_color;
 				Color m_outlineColor;
 				float m_outlineThickness;
 				gbl::core::FloatRect m_insideBounds;
 				gbl::core::FloatRect m_bounds;
+
+			private:
+
+				void updateColor();
+				void updateOutlineColor();
+				void updateOutline();				
 		};
 	}
 }
