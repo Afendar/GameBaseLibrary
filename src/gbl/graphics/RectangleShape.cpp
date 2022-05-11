@@ -1,8 +1,9 @@
+//Standard C++ Library Includes
+#include <iostream>
+
 //GameBaseLibrary Includes
 #include <graphics/RectangleShape.hpp>
 #include <core/SDLHeaders.hpp>
-
-#include <iostream>
 
 namespace gbl {
 	namespace graphics {

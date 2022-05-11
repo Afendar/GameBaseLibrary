@@ -10,12 +10,22 @@
 
 namespace gbl {
 	namespace resource {
+		/**
+		 * Class ResourceManager
+		 * 
+		 * @namespace gbl::resource
+		 */
 		class ResourceManager {
 			public:
-
 				ResourceManager(const ResourceManager& resourceManager) = delete;
 				ResourceManager& operator=(const ResourceManager& resourceManager) = delete;
 
+				/**
+				 * 
+				 * @param const std::string& name
+				 * @param Args &&... args
+				 * @return T&
+				 */
 				template<typename T, typename... Args>
 				T& add(const std::string& name, Args &&... args) {
 					if (has(name)) {
@@ -27,10 +37,19 @@ namespace gbl {
 					return get<T>(name);
 				}
 
+				/**
+				 * 
+				 * @param const std::string& name
+				 * @return bool
+				 */
 				bool has(const std::string& name) {
 					return m_resources.count(name) == 1;
 				}
 
+				/**
+				 * @param const std::string& name
+				 * @return T&
+				 */
 				template<typename T>
 				T& get(const std::string& name) {
 					auto it = m_resources.find(name);
@@ -41,8 +60,14 @@ namespace gbl {
 					return *std::static_pointer_cast<T>(it->second);
 				}
 
+				/**
+				 * 
+				 */
 				void clear() { m_resources.clear(); }
 
+				/**
+				 *
+				 */
 				static ResourceManager* getInstance() {
 					if (!m_instance) {
 						m_instance = new ResourceManager();
@@ -51,6 +76,10 @@ namespace gbl {
 					return m_instance;
 				}
 
+				/**
+				 * @param const char* jsonFilename
+				 * @return auto
+				 */
 				template<typename ResourceLoader>
 				static auto loadConfigFile(const char* jsonFilename) -> typename std::enable_if<std::is_base_of<IResourceLoader, ResourceLoader>::value>::type {
 					ResourceLoader loader;
@@ -59,10 +88,12 @@ namespace gbl {
 
 			private:
 
+				/**
+				 *
+				 */
 				ResourceManager() {}
 
 				static ResourceManager* m_instance;
-
 				std::map<std::string, std::shared_ptr<void>> m_resources;
 		};
 	}

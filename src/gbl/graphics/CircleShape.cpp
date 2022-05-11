@@ -1,3 +1,4 @@
+//GameBaseLibrary Includes
 #include <graphics/CircleShape.hpp>
 
 gbl::graphics::CircleShape::CircleShape(float radius, std::size_t pointCount):
